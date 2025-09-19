@@ -3,6 +3,8 @@
 // Using native <button> instead of missing "@/components/ui/button"
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+
 
 export default function HomePage() {
   const year = new Date().getFullYear();
@@ -21,8 +23,8 @@ export default function HomePage() {
           />
 
           <div className="text-left">
-            <h1 className="text-xl md:text-2xl font-extrabold text-gray-800 tracking-tight">
-              Secretaria Municipal de Trabalho e Promoção Social - SEMTEPS
+            <h1 className="text-lg md:text-xl font-extrabold text-gray-800 tracking-tight">
+            Secretaria Municipal de Trabalho <br />e Promoção Social - SEMTEPS
             </h1>
             <p className="text-gray-600 text-sm md:text-base">
               Plataforma da Vigilância Socioassistencial
@@ -31,12 +33,12 @@ export default function HomePage() {
         </div>
 
         <nav className="flex flex-wrap justify-center md:justify-end space-x-6 text-gray-700 font-semibold mt-4 md:mt-0">
-          <a href="#" className="hover:text-green-700 transition">Página Inicial</a>
-          <a href="#" className="hover:text-green-700 transition">Assistência Social</a>
-          <a href="#boletins" className="hover:text-green-700 transition">Boletim da Vigilância</a>
-          <a href="#indicadores" className="hover:text-green-700 transition">Indicadores</a>
-          <a href="#tipificacoes" className="hover:text-green-700 transition">Tipificações</a>
-          <a href="#sobre" className="hover:text-green-700 transition">Sobre a Vigilância</a>
+          <Link href="/" className="hover:text-green-700 transition">Página Inicial</Link>
+          <Link href="/assistencia-social" className="hover:text-green-700 transition">Assistência Social</Link>
+          <Link href="/boletins" className="hover:text-green-700 transition">Boletim da Vigilância</Link>
+          <Link href="/indicadores" className="hover:text-green-700 transition">Indicadores</Link>
+          <Link href="/normativas" className="hover:text-green-700 transition">Normativas</Link>
+          <Link href="/sobre" className="hover:text-green-700 transition">Sobre a Vigilância</Link>
         </nav>
       </header>
 
@@ -56,27 +58,27 @@ export default function HomePage() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <a href="#boletins">
+          <a href="/boletins">
             <button type="button" className="rounded-2xl px-8 py-4 bg-blue-700 hover:bg-blue-800 text-white shadow-lg">
               Acessar Boletins
             </button>
           </a>
-          <a href="#indicadores">
-            <button type="button" className="rounded-2xl px-8 py-4 bg-green-600 hover:bg-green-700 text-white shadow-lg">
-              Ver Indicadores
-            </button>
-          </a>
+            <Link href="/indicadores">
+              <button type="button" className="rounded-2xl px-8 py-4 bg-green-600 hover:bg-green-700 text-white shadow-lg">
+                Ver Indicadores
+              </button>
+            </Link>
         </div>
 
         {/* Cartões de Acesso Rápido */}
         <section className="mt-12 w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6">
-          <motion.div
+            <motion.div
             className="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition"
             whileHover={{ scale: 1.03 }}
           >
             <h3 className="font-bold text-blue-800">Últimos Indicadores</h3>
             <p className="text-gray-600 text-sm mt-2">Confira os principais dados atualizados da rede socioassistencial.</p>
-            <a href="#indicadores" className="text-blue-700 text-sm mt-3 inline-block hover:underline">Abrir</a>
+            <Link href="/indicadores" className="text-blue-700 text-sm mt-3 inline-block hover:underline">Abrir</Link>
           </motion.div>
 
           <motion.div
